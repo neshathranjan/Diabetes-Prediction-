@@ -1,0 +1,222 @@
+/* Base Styles & Reset */
+:root {
+    --primary-color: #00AEEF;
+    /* Diabetes awareness blue */
+    --secondary-color: #4FC3F7;
+    --background-dark: #f0f4f8;
+    /* Light medical background */
+    --surface-dark: #ffffff;
+    /* White card */
+    --text-light: #333333;
+    /* Dark text for readability */
+    --text-muted: #666666;
+    --accent-color: #0277BD;
+    --success-color: #4CAF50;
+    --danger-color: #F44336;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.welcome-text {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: none;
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 174, 239, 0.2);
+    /* Animation removed */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+input {
+    padding: 12px 15px;
+    background: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 174, 239, 0.2);
+    background: #ffffff;
+}
+
+.submit-btn {
+    grid-column: span 2;
+    margin-top: 20px;
+    padding: 15px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+}
+
+.result-card {
+    text-align: center;
+}
+
+.result-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.diabetic {
+    color: var(--danger-color);
+}
+
+.not-diabetic {
+    color: var(--success-color);
+}
+
+.probability {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.back-btn:hover {
+    background: rgba(74, 144, 226, 0.1);
+    transform: translateY(-1px);
+}
+
+.alert {
+    grid-column: span 2;
+    background: rgba(255, 61, 0, 0.2);
+    border: 1px solid var(--danger-color);
+    color: #ff8a80;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px 20px;
+        margin: 20px;
+        width: auto;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .submit-btn,
+    .alert {
+        grid-column: span 1;
+    }
+
+    body {
+        padding: 10px;
+        align-items: flex-start;
+        /* Allow scroll on small screens if content is tall */
+    }
+
+    .container {
+        padding: 25px 15px;
+        margin-top: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .welcome-text {
+        font-size: 1rem;
+    }
+
+    .input-group label {
+        font-size: 0.85rem;
+    }
+
+    input {
+        padding: 10px 12px;
+    }
+}

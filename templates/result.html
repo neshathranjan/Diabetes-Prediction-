@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="result-card">
+            <h1>Analysis Result</h1>
+
+            <h2 class="result-title {{ 'diabetic' if result == 'Diabetic' else 'not-diabetic' }}">
+                {{ result }}
+            </h2>
+
+            <p class="probability">
+                Confidence: {{ probability }}%
+            </p>
+
+            <div style="margin-bottom: 30px;">
+                {% if result == 'Diabetic' %}
+                <p>The analysis indicates a high likelihood of diabetes. Please consult a healthcare professional for
+                    further diagnosis.</p>
+                {% else %}
+                <p>The analysis does not indicate diabetes. Continue maintaining a healthy lifestyle.</p>
+                {% endif %}
+            </div>
+
+            <a href="/" class="back-btn">Check Another</a>
+        </div>
+    </div>
+</body>
+
+</html>
